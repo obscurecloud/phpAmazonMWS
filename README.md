@@ -9,7 +9,7 @@ This is __NOT__ for Amazon Web Services (AWS) - Cloud Computing Services.
 
  Added namespace - MWS  
  Added Laravel config  
- Put config file in config dir named amazon-mws-config.php  
+ Put config file in /config dir and name the file amazon-mws-config.php  
 
 ## Example Usage
 Here are a couple of examples of the library in use.
