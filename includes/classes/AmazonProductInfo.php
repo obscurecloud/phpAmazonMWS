@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+namespace MWS;
 /**
  * Fetches various information about products from Amazon.
  * 

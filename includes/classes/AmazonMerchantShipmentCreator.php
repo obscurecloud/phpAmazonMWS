@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+namespace MWS;
 /**
  * Creates a Merchant Fulfillment Shipment Amazon.
  *
@@ -332,7 +332,7 @@ class AmazonMerchantShipmentCreator extends AmazonMerchantCore {
     public function setMaxArrivalDate($d) {
         try{
             $this->options['ShipmentRequestDetails.MustArriveByDate'] = $this->genTime($d);
-        } catch (Exception $e){
+        } catch (\Exception $e){
             unset($this->options['ShipmentRequestDetails.MustArriveByDate']);
             $this->log('Error: '.$e->getMessage(), 'Warning');
             return false;
@@ -349,7 +349,7 @@ class AmazonMerchantShipmentCreator extends AmazonMerchantCore {
     public function setShipDate($d) {
         try{
             $this->options['ShipmentRequestDetails.ShipDate'] = $this->genTime($d);
-        } catch (Exception $e){
+        } catch (\Exception $e){
             unset($this->options['ShipmentRequestDetails.ShipDate']);
             $this->log('Error: '.$e->getMessage(), 'Warning');
             return false;

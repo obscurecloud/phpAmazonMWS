@@ -15,6 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+namespace MWS;
 
 /**
  * Pulls a list of Orders and turn them into an array of AmazonOrder objects.
@@ -24,7 +25,7 @@
  * are available to narrow the number of orders returned, but none of them
  * are required. This object can use tokens when retrieving the list.
  */
-class AmazonOrderList extends AmazonOrderCore implements Iterator{
+class AmazonOrderList extends AmazonOrderCore implements \Iterator{
     protected $orderList;
     protected $i = 0;
     protected $tokenFlag = false;
@@ -127,7 +128,7 @@ class AmazonOrderList extends AmazonOrderCore implements Iterator{
                 return false;
             }
             
-        } catch (Exception $e){
+        } catch (\Exception $e){
             $this->log('Error: '.$e->getMessage(),'Warning');
             return false;
         }
@@ -222,7 +223,7 @@ class AmazonOrderList extends AmazonOrderCore implements Iterator{
         if (file_exists($this->config)){
             include($this->config);
         } else {
-            throw new Exception('Config file does not exist!');
+            throw new \Exception('Config file does not exist!');
         }
         if(isset($store[$this->storeName]) && array_key_exists('marketplaceId', $store[$this->storeName])){
             $this->options['MarketplaceId.Id.1'] = $store[$this->storeName]['marketplaceId'];

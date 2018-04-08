@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+namespace MWS;
 /**
  * Fetches transport info for a fulfillment shipment or updates it.
  *
@@ -392,7 +392,7 @@ class AmazonTransport extends AmazonInboundCore {
         }
         try{
             $this->options[$op.'.FreightReadyDate'] = strstr($this->genTime($d), 'T', true);
-        } catch (Exception $e){
+        } catch (\Exception $e){
             unset($this->options[$op.'.FreightReadyDate']);
             $this->log('Error: '.$e->getMessage(), 'Warning');
             return false;

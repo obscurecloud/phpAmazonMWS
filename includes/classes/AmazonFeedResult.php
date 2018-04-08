@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+namespace MWS;
 /**
  * Retrieves feeds from Amazon.
  * 
@@ -124,7 +124,7 @@ class AmazonFeedResult extends AmazonFeedsCore{
         try{
             file_put_contents($path,$this->rawFeed);
             $this->log("Successfully saved feed #".$this->options['FeedSubmissionId']." at $path");
-        } catch (Exception $e){
+        } catch (\Exception $e){
             $this->log("Unable to save feed #".$this->options['FeedSubmissionId']." at $path: ".$e->getMessage(),'Urgent');
             return false;
         }

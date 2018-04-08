@@ -16,7 +16,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+namespace MWS;
 /**
  * Core class for Amazon Subscriptions API.
  *
@@ -45,7 +45,7 @@ abstract class AmazonSubscriptionCore extends AmazonCore{
         if (file_exists($this->config)){
             include($this->config);
         } else {
-            throw new Exception('Config file does not exist!');
+            throw new \Exception('Config file does not exist!');
         }
 
         if (isset($AMAZON_VERSION_SUBSCRIBE)){

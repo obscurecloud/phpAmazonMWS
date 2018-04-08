@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+namespace MWS;
 /**
  * Fetches a list of shipments from Amazon.
  * 
@@ -193,7 +193,7 @@ class AmazonShipmentList extends AmazonInboundCore implements Iterator{
                 $this->setTimeLimits($this->options['LastUpdatedBefore'].' - 1 second',$this->options['LastUpdatedBefore']);
             }
             
-        } catch (Exception $e){
+        } catch (\Exception $e){
             throw new InvalidArgumentException('Parameters should be timestamps.');
         }
         

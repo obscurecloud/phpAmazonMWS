@@ -15,8 +15,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+namespace MWS;
 
-/**
+
+	/**
  * The main core of the Amazon class.
  * 
  * The Amazon classes are divided up into groups, with each group
@@ -227,7 +229,7 @@ abstract class AmazonCore{
                     $return = file_get_contents($url);
                 }
                 return $return;
-            } catch (Exception $e){
+            } catch (\Exception $e){
                 $this->log("Error when opening Mock File: $url - ".$e->getMessage(),'Warning');
                 return false;
             }
@@ -366,7 +368,7 @@ abstract class AmazonCore{
                 $this->urlbase = rtrim($AMAZON_SERVICE_URL, '/') . '/';
             }
         } else {
-            throw new Exception("Config file does not exist or cannot be read! ($path)");
+            throw new \Exception("Config file does not exist or cannot be read! ($path)");
         }
     }
     
@@ -386,7 +388,7 @@ abstract class AmazonCore{
         if (file_exists($path) && is_readable($path)){
             $this->logpath = $path;
         } else {
-            throw new Exception("Log file does not exist or cannot be read! ($path)");
+            throw new \Exception("Log file does not exist or cannot be read! ($path)");
         }
         
     }
@@ -407,11 +409,11 @@ abstract class AmazonCore{
         if (file_exists($this->config)){
             include($this->config);
         } else {
-            throw new Exception("Config file does not exist!");
+            throw new \Exception("Config file does not exist!");
         }
         
         if (empty($store) || !is_array($store)) {
-            throw new Exception("No stores defined!");
+            throw new \Exception("No stores defined!");
         }
         
         if (!isset($s) && count($store)===1) {
@@ -476,7 +478,7 @@ abstract class AmazonCore{
             if (file_exists($this->config)){
                 include($this->config);
             } else {
-                throw new Exception("Config file does not exist!");
+                throw new \Exception("Config file does not exist!");
             }
             if (isset($logfunction) && $logfunction != '' && function_exists($logfunction)){
                 switch ($level){
@@ -526,7 +528,7 @@ abstract class AmazonCore{
                 fwrite($fd,$str . "\r\n");
                 fclose($fd);
             } else {
-                throw new Exception('Error! Cannot write to log! ('.$this->logpath.')');
+                throw new \Exception('Error! Cannot write to log! ('.$this->logpath.')');
             }
         } else {
             return false;
@@ -585,13 +587,13 @@ abstract class AmazonCore{
         if (file_exists($this->config)){
             include($this->config);
         } else {
-            throw new Exception("Config file does not exist!");
+            throw new \Exception("Config file does not exist!");
         }
         
         if (array_key_exists($this->storeName, $store) && array_key_exists('secretKey', $store[$this->storeName])){
             $secretKey = $store[$this->storeName]['secretKey'];
         } else {
-            throw new Exception("Secret Key is missing!");
+            throw new \Exception("Secret Key is missing!");
         }
         
         unset($this->options['Signature']);
@@ -894,7 +896,7 @@ abstract class AmazonCore{
             $stringToSign = $this->_calculateStringToSignV2($parameters);
 //            var_dump($stringToSign);
         } else {
-            throw new Exception("Invalid Signature Version specified");
+            throw new \Exception("Invalid Signature Version specified");
         }
         return $this->_sign($stringToSign, $key, $algorithm);
     }
@@ -936,7 +938,7 @@ abstract class AmazonCore{
         } else if ($algorithm === 'HmacSHA256') {
             $hash = 'sha256';
         } else {
-            throw new Exception ("Non-supported signing method specified");
+            throw new \Exception ("Non-supported signing method specified");
         }
         
         return base64_encode(

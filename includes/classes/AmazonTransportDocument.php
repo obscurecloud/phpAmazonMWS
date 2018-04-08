@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+namespace MWS;
 /**
  * Fetches documents for a fulfillment shipment.
  *
@@ -339,7 +339,7 @@ class AmazonTransportDocument extends AmazonInboundCore {
             }
             try {
                 return base64_decode($this->doc);
-            } catch (Exception $ex) {
+            } catch (\Exception $ex) {
                 $this->log('Failed to convert transport document file, file might be corrupt: '.
                         $ex->getMessage(), 'Urgent');
             }
@@ -361,7 +361,7 @@ class AmazonTransportDocument extends AmazonInboundCore {
             }
             try {
                 return base64_decode($this->checksum);
-            } catch (Exception $ex) {
+            } catch (\Exception $ex) {
                 $this->log('Failed to convert transport document checksum, file might be corrupt: '.
                         $ex->getMessage(), 'Urgent');
             }

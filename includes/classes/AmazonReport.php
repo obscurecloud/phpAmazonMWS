@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+namespace MWS;
 /**
  * Fetches a report from Amazon
  * 
@@ -134,7 +134,7 @@ class AmazonReport extends AmazonReportsCore{
         try{
             file_put_contents($path, $this->rawreport);
             $this->log("Successfully saved report #".$this->options['ReportId']." at $path");
-        } catch (Exception $e){
+        } catch (\Exception $e){
             $this->log("Unable to save report #".$this->options['ReportId']." at $path: $e",'Urgent');
             return false;
         }

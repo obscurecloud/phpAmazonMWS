@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+namespace MWS;
 /**
  * Manages report schedules with Amazon.
  * 
@@ -138,7 +138,7 @@ class AmazonReportScheduleManager extends AmazonReportsCore implements Iterator{
             }
             $this->options['ScheduledDate'] = $after;
             
-        } catch (Exception $e){
+        } catch (\Exception $e){
             $this->log("Error: ".$e->getMessage(),'Warning');
         }
         

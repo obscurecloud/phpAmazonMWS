@@ -16,7 +16,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+namespace MWS;
 /**
  * Creates a subscription on Amazon or updates it, or registers subscription destinations.
  *
