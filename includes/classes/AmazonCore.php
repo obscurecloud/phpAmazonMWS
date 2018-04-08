@@ -360,6 +360,9 @@ abstract class AmazonCore{
      * @throws Exception If the file cannot be found or read.
      */
     public function setConfig($path){
+        if(!file_exists($path) || !is_readable($path)) {
+            $path = config_path('amazon-mws-config.php');
+        }
         if (file_exists($path) && is_readable($path)){
             include($path);
             $this->config = $path;
