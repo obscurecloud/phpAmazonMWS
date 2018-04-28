@@ -24,7 +24,7 @@ namespace MWS;
  * are required, filters for start time and method are available.
  * This object can use tokens when retrieving the list.
  */
-class AmazonFulfillmentOrderList extends AmazonOutboundCore implements Iterator{
+class AmazonFulfillmentOrderList extends AmazonOutboundCore implements \Iterator{
     protected $orderList;
     protected $tokenFlag = false;
     protected $tokenUseFlag = false;

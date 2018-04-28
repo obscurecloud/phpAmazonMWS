@@ -24,7 +24,7 @@ namespace MWS;
  * wish to retrieve information for only one order, please use the <i>AmazonOrder</i>
  * class instead.
  */
-class AmazonOrderSet extends AmazonOrderCore implements Iterator{
+class AmazonOrderSet extends AmazonOrderCore implements \Iterator{
     protected $i = 0;
     protected $index = 0;
     protected $orderList;

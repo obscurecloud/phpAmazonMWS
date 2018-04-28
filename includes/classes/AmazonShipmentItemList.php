@@ -23,7 +23,7 @@ namespace MWS;
  * shipment from Amazon. In order to get the list, a shipment ID is required.
  * An optional parameter is available to narrow the returned items.
  */
-class AmazonShipmentItemList extends AmazonInboundCore implements Iterator{
+class AmazonShipmentItemList extends AmazonInboundCore implements \Iterator{
     protected $tokenFlag = false;
     protected $tokenUseFlag = false;
     protected $itemList;

@@ -23,7 +23,7 @@ namespace MWS;
  * reports on Amazon. In order to do this, at least one Report ID is
  * required. A list of the affected reports is returned.
  */
-class AmazonReportAcknowledger extends AmazonReportsCore implements Iterator{
+class AmazonReportAcknowledger extends AmazonReportsCore implements \Iterator{
     protected $count;
     protected $index = 0;
     protected $i = 0;

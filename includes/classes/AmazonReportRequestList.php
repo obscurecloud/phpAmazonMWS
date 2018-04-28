@@ -25,7 +25,7 @@ namespace MWS;
  * This object can also count the number of report requests. This object can
  * use tokens when retrieving the list.
  */
-class AmazonReportRequestList extends AmazonReportsCore implements Iterator{
+class AmazonReportRequestList extends AmazonReportsCore implements \Iterator{
     protected $tokenFlag = false;
     protected $tokenUseFlag = false;
     protected $index = 0;

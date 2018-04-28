@@ -25,7 +25,7 @@ namespace MWS;
  * Any carriers that are temporarily unavailable will be stored in separate lists
  * based on the reason for why the carrier is unavailable.
  */
-class AmazonMerchantServiceList extends AmazonMerchantCore implements Iterator{
+class AmazonMerchantServiceList extends AmazonMerchantCore implements \Iterator{
     protected $serviceList;
     protected $downList;
     protected $termsList;
