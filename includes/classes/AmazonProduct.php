@@ -466,6 +466,26 @@ class AmazonProduct extends AmazonProductsCore{
             return false;
         }
     }
+
+	/**
+	 * Returns the ASIN for a Product
+	 *
+	 * @return string|false
+	 */
+    public function getAsin(){
+    	$product = $this->getProduct();
+
+		if(array_key_exists('Identifiers', $product)) {
+			if(array_key_exists('MarketplaceASIN', $product['Identifiers'])) {
+				if(array_key_exists('ASIN',  $product['Identifiers']['MarketplaceASIN'])) {
+					return $product['Identifiers']['MarketplaceASIN']['ASIN'];
+				}
+			}
+
+		}
+		return false;
+
+	}
     
 }
 ?>

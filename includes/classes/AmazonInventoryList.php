@@ -151,7 +151,7 @@ class AmazonInventoryList extends AmazonInventoryCore implements \Iterator{
             return false;
         }
     }
-    
+
      /**
      * Fetches the inventory supply list from Amazon.
      * 

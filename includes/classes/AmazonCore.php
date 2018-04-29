@@ -395,8 +395,26 @@ abstract class AmazonCore{
         }
         
     }
-    
-    /**
+
+	/**
+	 * Sets marketplace id. (Optional)
+	 *
+	 * Assumes the default value if MarketplaceId is not specified.
+	 *
+	 * @param string $s <p>An encrypted Amazon defined marketplace identifier.
+	 *                  It is used to limit the scope of a request or response to a specific marketplace.</p>
+	 *
+	 * @return boolean <b>FALSE</b> if no input
+	 */
+	public function setMarketplaceId($s){
+		if ($s){
+			$this->options['MarketplaceId'] = $s;
+		} else {
+			return false;
+		}
+	}
+
+	/**
      * Sets the store values.
      * 
      * This method sets a number of key values from the config file. These values
